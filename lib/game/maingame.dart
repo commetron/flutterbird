@@ -1,6 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame_audio/audio_pool.dart';
 import 'package:flutterbird/objs/bg.dart';
 import 'package:flutterbird/objs/bird.dart';
 import 'package:flutterbird/objs/coin.dart';
@@ -18,6 +19,9 @@ class MainGame extends FlameGame with HasCollisionDetection, TapDetector {
   Pipe pipe2 = Pipe("pipe1.png");
 
   Coin coin = Coin();
+
+  late AudioPool fly;
+
   @override
   Future<void>? onLoad() async {
     add(bg);
@@ -39,6 +43,8 @@ class MainGame extends FlameGame with HasCollisionDetection, TapDetector {
 
     add(bird);
     bird.add(RectangleHitbox());
+
+    fly = await AudioPool.create("audio/sfx/wing.ogg", maxPlayers: 1);
 
     return super.onLoad();
   }
@@ -63,6 +69,9 @@ class MainGame extends FlameGame with HasCollisionDetection, TapDetector {
   void onTap() {
     if (bird.y > 0) {
       bird.vel -= 15;
+      fly.start();
+    } else {
+      bird.y = 0;
     }
     super.onTap();
   }
