@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flutterbird/objs/obj.dart';
+import 'package:flutterbird/util/util.dart';
 
 class Pipe extends Obj {
   String image;
@@ -15,7 +16,7 @@ class Pipe extends Obj {
 
   @override
   void update(double dt) {
-    x -= 100 * dt;
+    x -= (100 + score * 15) * dt;
     if (x < -100) {
       x = 600;
       y = random(-200, 0).toDouble();

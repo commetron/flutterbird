@@ -1,6 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:flutterbird/objs/obj.dart';
 
+import '../util/util.dart';
+
 class Ground extends Obj {
   @override
   Future<void>? onLoad() async {
@@ -10,7 +12,7 @@ class Ground extends Obj {
 
   @override
   void update(double dt) {
-    x -= 100 * dt;
+    x -= (100 + score * 10) * dt;
     if (x <= -width) {
       x = 0;
     }
@@ -37,7 +39,7 @@ class Ground2 extends Obj {
 
   @override
   void update(double dt) {
-    x -= 100 * dt;
+    x -= (100 + score * 10) * dt;
     if (x < 0) {
       x = width;
     }

@@ -30,7 +30,7 @@ class Bg2 extends Obj {
   @override
   Future<void>? onLoad() async {
     sprite = await Sprite.load("sky.png");
-    position = Vector2(width - 5, 0);
+    position = Vector2(width, 0);
     return super.onLoad();
   }
 
