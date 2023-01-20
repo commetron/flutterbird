@@ -11,6 +11,10 @@ class Coin extends Obj {
 
   @override
   void update(double dt) {
+    //Se sair da tela fica visivel novamente
+    if (x < -60) {
+      visible = true;
+    }
     animation(8, 5, '');
     super.update(dt);
   }

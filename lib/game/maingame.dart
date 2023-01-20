@@ -43,15 +43,20 @@ class MainGame extends FlameGame with HasCollisionDetection, TapDetector {
     return super.onLoad();
   }
 
+  gameOverPause() {
+    if (gameOver) {
+      overlays.add("endscreen");
+      pauseEngine();
+    }
+  }
+
   @override
   void update(double dt) {
     super.update(dt);
     pipe2.position.y = pipe.y + pipe.height + 200;
     coin.y = pipe.y + pipe.height + 100 - coin.height / 2;
     coin.x = pipe.x + pipe.width / 2 - (coin.width / 2);
-    if (gameOver) {
-      pauseEngine();
-    }
+    gameOverPause();
   }
 
   @override

@@ -1,5 +1,7 @@
 import 'package:flame/components.dart';
+import 'package:flutterbird/objs/coin.dart';
 import 'package:flutterbird/objs/ground.dart';
+import 'package:flutterbird/objs/pipe.dart';
 
 import '../util/util.dart';
 import 'obj.dart';
@@ -41,6 +43,11 @@ class Bird extends Obj {
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Ground) {
       gameOver = true;
+    } else if (other is Pipe) {
+      gameOver = true;
+    } else if (other is Coin) {
+      // other.removeFromParent();
+      other.visible = false;
     }
     super.onCollision(intersectionPoints, other);
   }

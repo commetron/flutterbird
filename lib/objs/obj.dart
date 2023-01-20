@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'dart:ui';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
@@ -7,6 +7,8 @@ class Obj extends SpriteComponent with CollisionCallbacks {
   int timer = 0;
   int img = 1;
   String name = "";
+
+  bool visible = true;
 
   random(min, max) {
     var r = Random();
@@ -24,5 +26,13 @@ class Obj extends SpriteComponent with CollisionCallbacks {
       img = 1;
     }
     sprite = await Sprite.load("$name$img.png");
+  }
+
+  //Controla visibilidade da tela
+  @override
+  void render(Canvas canvas) {
+    if (visible) {
+      super.render(canvas);
+    }
   }
 }
