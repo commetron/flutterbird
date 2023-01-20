@@ -15,6 +15,7 @@ Widget endScreen(BuildContext context, MainGame game) {
       GestureDetector(
         onTap: () {
           gameOver = false;
+          score = 0;
           Navigator.push(context, MaterialPageRoute(
             builder: (context) {
               return const StartScreen();

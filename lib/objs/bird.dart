@@ -57,6 +57,7 @@ class Bird extends Obj {
     } else if (other is Coin) {
       // other.removeFromParent();
       if (other.visible) {
+        score++;
         coin.start();
       }
       other.visible = false;
