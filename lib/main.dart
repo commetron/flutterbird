@@ -1,28 +1,11 @@
-import 'package:flame/game.dart';
-import 'package:flutter/cupertino.dart';
-
-import 'game/maingame.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterbird/overlays/startscreen.dart';
 
 void main() {
   runApp(
-    GameWidget(
-      game: MainGame(),
-      overlayBuilderMap: const {"endscreen": endScreen},
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: StartScreen(),
     ),
-  );
-}
-
-Widget endScreen(BuildContext context, MainGame game) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    mainAxisSize: MainAxisSize.max,
-    children: [
-      Image.asset("assets/images/gameover.png"),
-      GestureDetector(
-        onTap: () {},
-        child: Image.asset("assets/images/go.png"),
-      )
-    ],
   );
 }
