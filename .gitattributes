@@ -1,2 +1,2 @@
 *.cc -linguist-detectable
-.cpp -linguist-detectable
+*.cpp -linguist-detectable
