@@ -49,13 +49,13 @@ class Bird extends Obj {
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Ground) {
-      // gameOver = true;
-      // colide.start();
+      gameOver = true;
+      colide.start();
     } else if (other is Pipe) {
-      // gameOver = true;
-      // colide.start();
+      gameOver = true;
+      colide.start();
     } else if (other is Coin) {
-      // other.removeFromParent();
+      other.removeFromParent();
       if (other.visible) {
         score++;
         coin.start();
